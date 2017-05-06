@@ -40,17 +40,10 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: create installer from conda packages
+  summary: create eman2 installer from conda packages
   description: |
     Constructor is a tool for constructing an installer for a collection of
     conda packages. It creates an Anaconda-like installer consisting of
     packages.
   doc_url: https://conda.io/projects/conda/en/latest/
   dev_url: https://github.com/conda/constructor
-
-extra:
-  recipe-maintainers:
-    - jakirkham
-    - mbargull
-    - msarahan
-    - hadim
