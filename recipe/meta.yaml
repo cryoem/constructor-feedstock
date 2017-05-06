@@ -1,13 +1,15 @@
 {% set version = "1.3.4" %}
-{%set sha256 = "9a7564309b70ee62bd0762f728ca18c6c7e7504c5723669d85ee0bf97326aec4" %}
+{%set sha256 = "37b09353267920729b86650418c527114cce31e9184cf32c0a3d8ac0fe898baa" %}
+{% set name = "constructor" %}
+{% set branch = "master" %}
 
 package:
-  name: constructor
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: constructor-{{ version }}.tar.gz
-  url: https://github.com/conda/constructor/archive/{{ version }}.tar.gz
+  fn: {{ name }}-{{ branch }}.tar.gz
+  url: https://github.com/cryoem/{{ name }}/archive/{{ branch }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -37,7 +39,3 @@ about:
   license_family: BSD
   license_file: LICENSE.txt
   summary: create installer from conda packages
-
-extra:
-  recipe-maintainers:
-    - jakirkham
