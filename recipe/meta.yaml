@@ -53,10 +53,4 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: create installer from conda packages
-
-extra:
-  recipe-maintainers:
-    - jakirkham
-    - mbargull
-    - msarahan
+  summary: create eman2 installer from conda packages
