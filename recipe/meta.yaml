@@ -1,4 +1,4 @@
-{% set version = "1.3.4" %}
+{% set version = "1.5.5" %}
 {%set sha256 = "37b09353267920729b86650418c527114cce31e9184cf32c0a3d8ac0fe898baa" %}
 {% set name = "constructor" %}
 {% set branch = "eman" %}
