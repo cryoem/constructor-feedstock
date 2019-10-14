@@ -39,39 +39,6 @@ index d523afc..807b20c 100644
 -- 
 2.20.1
 
-From 4c51426aad4a337b49bd8372e60f9b19af6cdfd0 Mon Sep 17 00:00:00 2001
-From: shadow_walker <shadowwalkersb@gmail.com>
-Date: Tue, 23 Jan 2018 12:50:07 -0600
-Subject: [PATCH] Partially Revert "nsis + installer: Use new
- UnicodePathTest::SpecialCharPathTest"
-
-This reverts commit 70977890c1ed7c505103512d7370237daed6d5f4.
----
- constructor/nsis/main.nsi.tmpl | 8 --------
- 1 file changed, 8 deletions(-)
-
-diff --git a/constructor/nsis/main.nsi.tmpl b/constructor/nsis/main.nsi.tmpl
-index 617e607..895319c 100644
---- a/constructor/nsis/main.nsi.tmpl
-+++ b/constructor/nsis/main.nsi.tmpl
-@@ -661,14 +661,6 @@ Function OnDirectoryLeave
-         abort
-     NoInvalidCharaceters:
- 
--    UnicodePathTest::SpecialCharPathTest $INSTDIR
--    Pop $R1
--    StrCmp $R1 "nothingspecial" nothing_special_path
--        messagebox mb_ok|MB_ICONEXCLAMATION \
--            "Error: 'Destination Folder' contains the following invalid character$R1"
--        abort
--    nothing_special_path:
--
-       ; test if path contains unicode characters
-       UnicodePathTest::UnicodePathTest $INSTDIR
-       Pop $R1
--- 
-2.20.1
-
 From 48212b60eadf3ce4ee6c39e4bb26c0a06c32bf37 Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Wed, 1 May 2019 22:28:07 -0500
