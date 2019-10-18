@@ -1,28 +1,12 @@
-From 2bfad3b4ee52c8294660aa3a1b26068b480961b3 Mon Sep 17 00:00:00 2001
+From c79ee3634436c27829052d714d7b0645e9371384 Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Sun, 5 Mar 2017 17:47:52 -0600
-Subject: [PATCH] customize for eman
+Subject: [PATCH] customize for eman: default prefix is upper case
 
 ---
- constructor/header.sh | 4 ++--
- constructor/shar.py   | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ constructor/shar.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/constructor/header.sh b/constructor/header.sh
-index 22b8bc4..babbe67 100644
---- a/constructor/header.sh
-+++ b/constructor/header.sh
-@@ -468,8 +468,8 @@ fi
- if [ "$BATCH" = "0" ]; then
-     # Interactive mode.
- #if osx
--    BASH_RC="$HOME"/.bash_profile
--    DEFAULT=yes
-+    BASH_RC=$HOME/.profile
-+    DEFAULT=no
- #else
-     BASH_RC="$HOME"/.bashrc
-     DEFAULT=no
 diff --git a/constructor/shar.py b/constructor/shar.py
 index d523afc..807b20c 100644
 --- a/constructor/shar.py
@@ -39,7 +23,7 @@ index d523afc..807b20c 100644
 -- 
 2.20.1
 
-From 48212b60eadf3ce4ee6c39e4bb26c0a06c32bf37 Mon Sep 17 00:00:00 2001
+From f614895e9709a71454dda32a0fb6ada2d580e767 Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Wed, 1 May 2019 22:28:07 -0500
 Subject: [PATCH] don't use envar SHELL
@@ -49,7 +33,7 @@ Subject: [PATCH] don't use envar SHELL
  1 file changed, 15 insertions(+), 19 deletions(-)
 
 diff --git a/constructor/header.sh b/constructor/header.sh
-index babbe67..4909705 100644
+index 22b8bc4..c8bcc61 100644
 --- a/constructor/header.sh
 +++ b/constructor/header.sh
 @@ -19,26 +19,22 @@ if ! echo "$0" | grep '\.sh$' > /dev/null; then
@@ -97,17 +81,18 @@ index babbe67..4909705 100644
 -- 
 2.20.1
 
-From be93dac75480a30e05532abeec425d6966edb2d8 Mon Sep 17 00:00:00 2001
+From a2a9c1434daa5e4c9359c887617bf7002ab460eb Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Fri, 10 May 2019 13:41:33 -0500
-Subject: [PATCH] disable test mode
+Subject: [PATCH] disable test mode, because test mode runs recipe tests of all
+ recipes
 
 ---
  constructor/header.sh | 11 +----------
  1 file changed, 1 insertion(+), 10 deletions(-)
 
 diff --git a/constructor/header.sh b/constructor/header.sh
-index 4909705..a039f43 100644
+index c8bcc61..31736a0 100644
 --- a/constructor/header.sh
 +++ b/constructor/header.sh
 @@ -61,7 +61,6 @@ PREFIX=__DEFAULT_PREFIX__
