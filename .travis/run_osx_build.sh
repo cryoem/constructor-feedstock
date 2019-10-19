@@ -14,7 +14,7 @@ echo -en 'travis_fold:end:remove_homebrew\\r'
 
 echo "Installing a fresh version of Miniconda." && echo -en 'travis_fold:start:install_miniconda\\r'
 MINICONDA_URL="https://repo.continuum.io/miniconda"
-MINICONDA_FILE="Miniconda3-latest-MacOSX-x86_64.sh"
+MINICONDA_FILE="Miniconda3-4.6.14-MacOSX-x86_64.sh"
 curl -L -O "${MINICONDA_URL}/${MINICONDA_FILE}"
 bash $MINICONDA_FILE -b
 echo -en 'travis_fold:end:install_miniconda\\r'
