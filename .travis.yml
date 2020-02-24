@@ -10,10 +10,6 @@ env:
 
 matrix:
   include:
-    - env: CONFIG=osx_python2.7 UPLOAD_PACKAGES=True PLATFORM=osx-64
-      os: osx
-      osx_image: xcode9.4
-
     - env: CONFIG=osx_python3.6 UPLOAD_PACKAGES=True PLATFORM=osx-64
       os: osx
       osx_image: xcode9.4
