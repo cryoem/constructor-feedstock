@@ -23,6 +23,7 @@ source:
 
 build:
   number: 0
+  skip: True  # [win32 or py27]
   script:
     - mkdir $PREFIX/standalone_conda  # [not win]
     - cp conda-{{ standalone_ver }}-{{ SUBDIR }}.exe $PREFIX/standalone_conda/conda.exe  # [not win]
