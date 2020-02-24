@@ -25,8 +25,8 @@ Current build status
   </tr><tr>
     <td>Travis</td>
     <td>
-      <a href="https://travis-ci.org/cryoem/constructor-feedstock">
-        <img alt="macOS" src="https://img.shields.io/travis/cryoem/constructor-feedstock/master.svg?label=macOS">
+      <a href="https://travis-ci.com/cryoem/constructor-feedstock">
+        <img alt="macOS" src="https://img.shields.io/travis/com/cryoem/constructor-feedstock/master.svg?label=macOS">
       </a>
     </td>
   </tr><tr>
