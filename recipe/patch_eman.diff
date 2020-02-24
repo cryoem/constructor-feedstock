@@ -1,4 +1,4 @@
-From c79ee3634436c27829052d714d7b0645e9371384 Mon Sep 17 00:00:00 2001
+From c9d59e9eb73da73f4e85817b848e77592ed6b76c Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Sun, 5 Mar 2017 17:47:52 -0600
 Subject: [PATCH] customize for eman: default prefix is upper case
@@ -8,22 +8,22 @@ Subject: [PATCH] customize for eman: default prefix is upper case
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/constructor/shar.py b/constructor/shar.py
-index d523afc..807b20c 100644
+index 083a837..00745b0 100644
 --- a/constructor/shar.py
 +++ b/constructor/shar.py
-@@ -53,7 +53,7 @@ def get_header(tarball, info):
+@@ -46,7 +46,7 @@ def get_header(conda_exec, tarball, info):
+         'VERSION': info['version'],
          'PLAT': info['_platform'],
-         'DIST0': dist0,
          'DEFAULT_PREFIX': info.get('default_prefix',
 -                                   '$HOME/%s' % name.lower()),
 +                                   '$HOME/%s' % name.upper()),
-         'MD5': md5_file(tarball),
+         'MD5': md5_files([conda_exec, tarball]),
          'INSTALL_COMMANDS': '\n'.join(install_lines),
          'pycache': '__pycache__',
 -- 
 2.20.1
 
-From f614895e9709a71454dda32a0fb6ada2d580e767 Mon Sep 17 00:00:00 2001
+From 2f222c8b098d5efbb9ac9d5a890771b3c2af1fea Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Wed, 1 May 2019 22:28:07 -0500
 Subject: [PATCH] don't use envar SHELL
@@ -33,10 +33,10 @@ Subject: [PATCH] don't use envar SHELL
  1 file changed, 15 insertions(+), 19 deletions(-)
 
 diff --git a/constructor/header.sh b/constructor/header.sh
-index 22b8bc4..c8bcc61 100644
+index 9904b2b..1db1c70 100644
 --- a/constructor/header.sh
 +++ b/constructor/header.sh
-@@ -19,26 +19,22 @@ if ! echo "$0" | grep '\.sh$' > /dev/null; then
+@@ -18,26 +18,22 @@ if ! echo "$0" | grep '\.sh$' > /dev/null; then
      return 1
  fi
  
@@ -81,7 +81,7 @@ index 22b8bc4..c8bcc61 100644
 -- 
 2.20.1
 
-From a2a9c1434daa5e4c9359c887617bf7002ab460eb Mon Sep 17 00:00:00 2001
+From 70024385eeef0f0cd641fe25c6da8ea6b8588012 Mon Sep 17 00:00:00 2001
 From: shadow_walker <shadowwalkersb@gmail.com>
 Date: Fri, 10 May 2019 13:41:33 -0500
 Subject: [PATCH] disable test mode, because test mode runs recipe tests of all
@@ -92,10 +92,10 @@ Subject: [PATCH] disable test mode, because test mode runs recipe tests of all
  1 file changed, 1 insertion(+), 10 deletions(-)
 
 diff --git a/constructor/header.sh b/constructor/header.sh
-index c8bcc61..31736a0 100644
+index 1db1c70..72e65a8 100644
 --- a/constructor/header.sh
 +++ b/constructor/header.sh
-@@ -61,7 +61,6 @@ PREFIX=__DEFAULT_PREFIX__
+@@ -60,7 +60,6 @@ PREFIX=__DEFAULT_PREFIX__
  BATCH=0
  FORCE=0
  SKIP_SCRIPTS=0
@@ -103,7 +103,7 @@ index c8bcc61..31736a0 100644
  REINSTALL=0
  USAGE="
  usage: $0 [options]
-@@ -75,7 +74,6 @@ Installs __NAME__ __VERSION__
+@@ -74,7 +73,6 @@ Installs __NAME__ __VERSION__
  -p PREFIX    install prefix, defaults to $PREFIX, must not contain spaces.
  -s           skip running pre/post-link/install scripts
  -u           update an existing installation
@@ -111,7 +111,7 @@ index c8bcc61..31736a0 100644
  "
  
  if which getopt > /dev/null 2>&1; then
-@@ -114,10 +112,6 @@ if which getopt > /dev/null 2>&1; then
+@@ -113,10 +111,6 @@ if which getopt > /dev/null 2>&1; then
                  FORCE=1
                  shift
                  ;;
@@ -122,7 +122,7 @@ index c8bcc61..31736a0 100644
              --)
                  shift
                  break
-@@ -129,7 +123,7 @@ if which getopt > /dev/null 2>&1; then
+@@ -128,7 +122,7 @@ if which getopt > /dev/null 2>&1; then
          esac
      done
  else
@@ -131,7 +131,7 @@ index c8bcc61..31736a0 100644
          case "$x" in
              h)
                  printf "%s\\n" "$USAGE"
-@@ -150,9 +144,6 @@ else
+@@ -149,9 +143,6 @@ else
              u)
                  FORCE=1
                  ;;
