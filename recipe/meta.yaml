@@ -1,5 +1,4 @@
 {% set version = "3.0.1" %}
-{% set sha256 = "228ff80a3fdbc40ab3b45910e299c9f171248d4291e76df15567add29a74dadd" %}
 {% set standalone_ver = "4.7.5" %}
 
 package:
@@ -7,8 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/conda/constructor/archive/{{ version }}.tar.gz
-    sha256: {{ sha256 }}
+  - url: https://github.com/conda/constructor/archive/master.tar.gz
 
 build:
   number: 0
